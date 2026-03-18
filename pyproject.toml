@@ -1,0 +1,11 @@
+[tool.pytest.ini_options]
+addopts = "--strict-config --strict-markers --cov=scripts --cov=tests --cov-report=term-missing --cov-report=xml --cov-fail-under=100"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+omit = ["tests/conftest.py"]
