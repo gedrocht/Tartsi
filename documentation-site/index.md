@@ -13,4 +13,3 @@ Tartsi is a teaching-focused React application that generates ritual-style magic
 1. Read [Getting started](./guide/getting-started.md).
 2. Continue to [How the generator works](./guide/how-the-generator-works.md).
 3. Try the hands-on tutorial: [Build your first magic circle](./tutorials/first-magic-circle.md).
-

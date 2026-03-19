@@ -21,4 +21,3 @@ Playwright tests load the built app in a real browser and exercise the main work
 ## Repository policy tests
 
 Python-based repository tests verify that the project keeps its governance and GitHub automation files in place.
-
