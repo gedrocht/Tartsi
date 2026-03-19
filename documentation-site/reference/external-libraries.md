@@ -13,7 +13,7 @@ and links to its official documentation.
 
 - [TypeScript](https://www.typescriptlang.org/docs/):
   provides static typing and safer refactoring.
-- [Vite](https://vite.dev/guide/):
+- [Vite](https://github.com/vitejs/vite/tree/main/docs/guide):
   powers local development and production builds.
 
 ## Testing
@@ -29,7 +29,7 @@ and links to its official documentation.
 ## Code quality and documentation
 
 - [ESLint](https://eslint.org/docs/latest/): enforces coding standards.
-- [Prettier](https://prettier.io/docs/en/): checks formatting consistency.
+- [Prettier](https://prettier.io/docs/): checks formatting consistency.
 - [TypeDoc](https://typedoc.org/):
   generates API documentation from source comments.
 - [VitePress](https://vitepress.dev/guide/what-is-vitepress):
