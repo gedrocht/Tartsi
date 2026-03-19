@@ -38,7 +38,7 @@ jobs:
       - name: Merge Pages content
         run: npm run pages:build
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist-pages
       - name: Deploy to GitHub Pages
