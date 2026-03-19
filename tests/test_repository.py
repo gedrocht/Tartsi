@@ -18,8 +18,16 @@ def test_readme_describes_local_checks() -> None:
     assert check_repo.validate_readme_mentions_local_checks()
 
 
-def test_ci_runs_pytest_and_dependency_review() -> None:
-    assert check_repo.validate_ci_references_pytest()
+def test_ci_runs_frontend_quality_and_dependency_review() -> None:
+    assert check_repo.validate_ci_references_frontend_quality()
+
+
+def test_pages_workflow_builds_application_and_documentation() -> None:
+    assert check_repo.validate_pages_workflow()
+
+
+def test_package_json_contains_expected_quality_scripts() -> None:
+    assert check_repo.validate_package_json_scripts()
 
 
 def test_workflows_pin_major_action_versions() -> None:

@@ -1,0 +1,11 @@
+====== Architecture: Rendering Pipeline ======
+
+The rendering pipeline turns solved symbolic data into SVG.
+
+===== Stages =====
+
+  - The domain model describes rings and cells.
+  - Geometry helpers convert polar coordinates into Cartesian coordinates.
+  - Symbol renderers translate symbol families into SVG shapes.
+  - The canvas composes rings, arcs, core glyphs, and glow layers.
+

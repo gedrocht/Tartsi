@@ -1,0 +1,10 @@
+====== Tartsi Wiki ======
+
+Welcome to the Tartsi knowledge base.
+
+  * [[tutorials:first_circle|Tutorial: your first magic circle]]
+  * [[architecture:wave_function_collapse|Architecture: wave-function collapse]]
+  * [[architecture:rendering_pipeline|Architecture: rendering pipeline]]
+
+This wiki is written for complete beginners. Read these pages in order if you are new to React, SVG, or procedural generation.
+

@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - master
   schedule:
     - cron: "17 3 * * 1"
 
@@ -22,6 +21,22 @@ jobs:
       - name: Lint workflows
         uses: raven-actions/actionlint@v2
 
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v18
+
+  yaml-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint YAML files
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: .
+
   gitleaks:
     runs-on: ubuntu-latest
     steps:
@@ -34,15 +49,34 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   osv-scan:
+    if: github.event_name == 'pull_request'
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.3
+    with:
+      scan-args: |-
+        -r
+        ./
+      fail-on-vuln: true
+    secrets: inherit
+
+  osv-scan-full:
+    if: github.event_name != 'pull_request'
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.3
+    with:
+      scan-args: |-
+        -r
+        ./
+      fail-on-vuln: true
+    secrets: inherit
+
+  link-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Scan dependencies
-        uses: google/osv-scanner-action@v1
+      - name: Check links in Markdown files
+        uses: lycheeverse/lychee-action@v2
         with:
-          scan-args: |-
-            --recursive
-            .
+          fail: true
+          args: --verbose --no-progress "./**/*.md"
 
   scorecards:
     if: github.event_name != 'pull_request'

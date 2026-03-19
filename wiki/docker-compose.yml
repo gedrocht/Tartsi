@@ -1,0 +1,8 @@
+services:
+  dokuwiki:
+    image: ghcr.io/linuxserver/dokuwiki:latest
+    ports:
+      - "8088:80"
+    volumes:
+      - ./data:/config/www/dokuwiki/data
+

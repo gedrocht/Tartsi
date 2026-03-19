@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;500;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  --application-background-color: #04050d;
+  --application-surface-color: rgba(9, 13, 28, 0.8);
+  --application-surface-border-color: rgba(255, 234, 184, 0.2);
+  --application-primary-text-color: #fff6da;
+  --application-secondary-text-color: #cfd6ea;
+  --application-accent-color: #ffcf73;
+  --application-accent-glow-color: rgba(255, 207, 115, 0.28);
+  --application-secondary-accent-color: #77efff;
+  --application-danger-color: #ff9580;
+  --application-radius-length: 24px;
+  --application-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--application-primary-text-color);
+  background:
+    radial-gradient(circle at top, rgba(82, 134, 255, 0.14), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255, 176, 96, 0.16), transparent 30%),
+    linear-gradient(180deg, #03050c 0%, #080714 50%, #03040a 100%);
+}
+
+a {
+  color: var(--application-secondary-accent-color);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.application-shell {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.hero-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.hero-copy,
+.hero-stat-card,
+.magic-circle-card {
+  background: linear-gradient(180deg, rgba(9, 13, 28, 0.95), rgba(9, 13, 28, 0.72));
+  border: 1px solid var(--application-surface-border-color);
+  border-radius: var(--application-radius-length);
+  box-shadow: var(--application-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.hero-copy {
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-copy::after {
+  content: "";
+  position: absolute;
+  inset: auto -20% -40% auto;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 207, 115, 0.18), transparent 70%);
+}
+
+.eyebrow-label {
+  margin: 0 0 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+  color: var(--application-secondary-accent-color);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 10px;
+}
+
+.hero-description,
+.supporting-text {
+  color: var(--application-secondary-text-color);
+  line-height: 1.7;
+}
+
+.hero-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hero-stat-card {
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-stat-value {
+  display: block;
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  color: var(--application-accent-color);
+}
+
+.hero-stat-label {
+  color: var(--application-secondary-text-color);
+}
+
+.application-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.sidebar-stack,
+.content-stack {
+  display: grid;
+  gap: 24px;
+}
+
+.magic-circle-card {
+  padding: 24px;
+}
+
+.control-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.field-label {
+  display: grid;
+  gap: 8px;
+  color: var(--application-secondary-text-color);
+}
+
+.text-field {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(1, 5, 15, 0.55);
+  color: var(--application-primary-text-color);
+}
+
+.button-row,
+.panel-header-row {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.primary-button,
+.secondary-button {
+  border-radius: 999px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #f4d489, #c17832);
+  color: #1f1407;
+  box-shadow: 0 0 24px var(--application-accent-glow-color);
+}
+
+.secondary-button {
+  background: rgba(14, 23, 41, 0.72);
+  color: var(--application-primary-text-color);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+  transform: translateY(-1px);
+}
+
+.magic-circle-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  margin: 20px 0 14px;
+}
+
+.documentation-link-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 18px;
+}
+
+.log-list {
+  display: grid;
+  gap: 12px;
+  max-height: 420px;
+  overflow: auto;
+  margin-top: 18px;
+}
+
+.log-entry {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(4, 8, 19, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.log-entry-header {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.84rem;
+  color: var(--application-secondary-text-color);
+}
+
+.log-severity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.log-severity-info,
+.log-severity-debug {
+  background: rgba(119, 239, 255, 0.12);
+  color: var(--application-secondary-accent-color);
+}
+
+.log-severity-warn {
+  background: rgba(255, 207, 115, 0.12);
+  color: var(--application-accent-color);
+}
+
+.log-severity-error {
+  background: rgba(255, 149, 128, 0.12);
+  color: var(--application-danger-color);
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 1080px) {
+  .hero-banner,
+  .application-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .magic-circle-svg {
+    animation: shimmerEntrance 900ms ease both;
+  }
+
+  .magic-circle-card {
+    animation: riseIn 700ms ease both;
+  }
+}
+
+@keyframes shimmerEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

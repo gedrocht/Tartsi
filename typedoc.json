@@ -1,0 +1,13 @@
+{
+  "entryPoints": ["src"],
+  "out": "typedoc-output",
+  "readme": "none",
+  "plugin": [],
+  "excludeExternals": true,
+  "excludePrivate": false,
+  "excludeProtected": false,
+  "includeVersion": true,
+  "sort": ["source-order"],
+  "gitRevision": "main"
+}
+

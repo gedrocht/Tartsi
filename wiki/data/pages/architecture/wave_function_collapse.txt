@@ -1,0 +1,16 @@
+====== Architecture: Wave Function Collapse ======
+
+The Tartsi generator uses a wave-function-collapse-inspired process.
+
+===== In plain language =====
+
+Each cell in each ring begins with several possible symbols.
+The solver picks one cell, chooses a symbol, and then removes incompatible symbols from neighboring cells.
+This repeats until the whole circle is resolved.
+
+===== Why it works well here =====
+
+  * Magic circles are repetitive but not identical.
+  * Neighbor relationships matter visually.
+  * Deterministic seeds are easy to understand and test.
+

@@ -1,0 +1,20 @@
+====== Tutorial: Your First Magic Circle ======
+
+===== Goal =====
+
+Generate a circle, change its structure, and understand what changed.
+
+===== Steps =====
+
+  - Start the application.
+  - Change the seed phrase.
+  - Increase ring count.
+  - Increase complexity.
+  - Export the SVG.
+
+===== What to notice =====
+
+  * The same seed gives the same result.
+  * More rings create a longer visual sentence.
+  * More complexity increases segment density.
+
