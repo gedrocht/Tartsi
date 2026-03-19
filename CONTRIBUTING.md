@@ -3,9 +3,8 @@
 ## Development workflow
 
 1. Create a branch from `main`.
-2. Install JavaScript dependencies with `npm install`.
-3. Install repository policy test dependencies with
-   `python -m pip install -r requirements-dev.txt`.
+2. Run `npm run doctor` to confirm your tools are installed.
+3. Run `npm run setup` to install the beginner prerequisites.
 4. Run `npm run quality:verify` and
    `python -m pytest tests/test_repository.py`.
 5. Keep pull requests small and focused so review remains accurate and humane.

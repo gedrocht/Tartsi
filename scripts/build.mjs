@@ -1,4 +1,4 @@
-import { spawnSync } from "node:child_process";
+import { printSectionTitle, runCommandOrThrow } from "./script-helpers.mjs";
 
 /**
  * This script gives the repository a visible, script-folder-based build entry point.
@@ -10,20 +10,10 @@ import { spawnSync } from "node:child_process";
  * for contributors who look in the `scripts/` directory first.
  */
 
-function runCommandOrThrow(commandName, commandArguments) {
-  const completedCommandResult = spawnSync(commandName, commandArguments, {
-    cwd: process.cwd(),
-    stdio: "inherit",
-    shell: process.platform === "win32"
-  });
-
-  if (completedCommandResult.status !== 0) {
-    throw new Error(
-      `The command ${commandName} ${commandArguments.join(" ")} failed with exit code ${completedCommandResult.status}.`
-    );
-  }
-}
-
+printSectionTitle("Type-checking the application");
 runCommandOrThrow("npm", ["run", "typecheck"]);
+
+printSectionTitle("Building the production bundle");
 runCommandOrThrow("npm", ["run", "build:application"]);
 
+console.log("\nApplication build complete.");

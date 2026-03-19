@@ -9,10 +9,14 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
+    "doctor": "node ./scripts/doctor.mjs",
+    "setup": "node ./scripts/setup.mjs",
+    "start": "node ./scripts/start-development.mjs",
     "dev": "vite",
     "build": "node ./scripts/build.mjs",
     "build:application": "vite build",
     "build:docs": "node ./scripts/build-docs.mjs",
+    "build:all": "node ./scripts/build-all.mjs",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings 0",
     "format:check": "prettier --check .",
@@ -21,6 +25,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:repository": "python -m pytest tests/test_repository.py",
+    "test:all": "node ./scripts/test-all.mjs",
     "docs:api": "typedoc",
     "docs:site:dev": "vitepress dev documentation-site",
     "docs:site:build": "vitepress build documentation-site",

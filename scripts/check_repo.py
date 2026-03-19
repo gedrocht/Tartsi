@@ -18,6 +18,7 @@ def required_files() -> list[str]:
         ".gitignore",
         "LICENSE",
         "README.md",
+        "START_HERE.md",
         "CONTRIBUTING.md",
         "SECURITY.md",
         "CODEOWNERS",
@@ -31,6 +32,12 @@ def required_files() -> list[str]:
         "src/components/MagicCircleWorkbench.tsx",
         "src/domain/magicCircleGenerator.ts",
         "src/domain/waveFunctionCollapseEngine.ts",
+        "scripts/doctor.mjs",
+        "scripts/setup.mjs",
+        "scripts/start-development.mjs",
+        "scripts/build.mjs",
+        "scripts/build-all.mjs",
+        "scripts/test-all.mjs",
         "src/test/magicCircleGenerator.test.ts",
         "documentation-site/index.md",
         "documentation-site/.vitepress/config.ts",
@@ -61,9 +68,13 @@ def validate_readme_mentions_local_checks() -> bool:
     content = read_text(ROOT / "README.md")
     return (
         "pytest" in content
-        and "requirements-dev.txt" in content
         and "GitHub Pages" in content
         and "DokuWiki" in content
+        and "npm run doctor" in content
+        and "npm run setup" in content
+        and "npm start" in content
+        and "npm run build:all" in content
+        and "npm run test:all" in content
     )
 
 
@@ -96,11 +107,16 @@ def validate_package_json_scripts() -> bool:
     package_json_content = json.loads(read_text(ROOT / "package.json"))
     scripts = package_json_content.get("scripts", {})
     required_script_names = [
+        "doctor",
+        "setup",
+        "start",
         "build",
+        "build:all",
         "lint",
         "typecheck",
         "test",
         "test:e2e",
+        "test:all",
         "docs:api",
         "docs:site:build",
         "pages:build",

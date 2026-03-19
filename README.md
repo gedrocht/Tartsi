@@ -1,5 +1,7 @@
 # Tartsi: Magic Circle Generator
 
+If you are brand new, start with [START_HERE.md](./START_HERE.md).
+
 Tartsi is a React and TypeScript web application that
 generates dramatic magic circles made from a geometric
 symbolic language. The visual language uses a
@@ -42,7 +44,29 @@ The repository is intentionally strict. It includes:
 - VitePress for the GitHub Pages documentation site
 - DokuWiki for the separate beginner-friendly wiki layer
 
-## Quick start
+## Fastest beginner path
+
+Run these commands in order:
+
+```bash
+npm run doctor
+npm run setup
+npm start
+```
+
+When you want to build everything:
+
+```bash
+npm run build:all
+```
+
+When you want to test everything:
+
+```bash
+npm run test:all
+```
+
+## Detailed setup
 
 ### Prerequisites
 
@@ -54,14 +78,13 @@ The repository is intentionally strict. It includes:
 ### Install dependencies
 
 ```bash
-npm install
-python -m pip install -r requirements-dev.txt
+npm run setup
 ```
 
 ### Run the application locally
 
 ```bash
-npm run dev
+npm start
 ```
 
 ### Build the application
@@ -70,7 +93,19 @@ npm run dev
 npm run build
 ```
 
-You can also call the script directly if you prefer script-folder entry points:
+### Build every static output
+
+```bash
+npm run build:all
+```
+
+### Test every major layer
+
+```bash
+npm run test:all
+```
+
+You can still call the script files directly if you prefer script-folder entry points:
 
 ```bash
 node ./scripts/build.mjs
@@ -92,6 +127,7 @@ docker compose -f wiki/docker-compose.yml up
 ## Project structure
 
 - `src/`: React application source code
+- `scripts/`: beginner-friendly setup, build, run, and test entry points
 - `documentation-site/`: GitHub Pages documentation site powered by VitePress
 - `wiki/`: DokuWiki content and local serving configuration
 - `tests/`: repository policy checks that protect project standards
@@ -108,12 +144,17 @@ docker compose -f wiki/docker-compose.yml up
 ## Important scripts
 
 - `npm run dev`: start the application in development mode
+- `npm run doctor`: check whether the required tools are installed
+- `npm run setup`: install the JavaScript and Python prerequisites
+- `npm start`: start the development server
 - `npm run build`: type-check and build the application
 - `npm run build:application`: build only the Vite application bundle
 - `npm run build:docs`: build the API docs and documentation site
+- `npm run build:all`: build the app, docs, and Pages package
 - `npm run test`: run Vitest with coverage
 - `npm run test:e2e`: run Playwright browser tests
 - `npm run test:repository`: run the Python repository-policy tests
+- `npm run test:all`: run frontend, repository, and end-to-end tests
 - `npm run docs:api`: build API docs from TSDoc comments
 - `npm run docs:site:build`: build the VitePress documentation site
 - `npm run docs:wiki:serve`: start the DokuWiki layer with Docker
@@ -121,11 +162,24 @@ docker compose -f wiki/docker-compose.yml up
   outputs for GitHub Pages
 - `npm run quality:verify`: run the main local quality gate
 
+## The simplest answers
+
+- Want to know what must be installed first? Run `npm run doctor`.
+- Want one command that installs what you need? Run `npm run setup`.
+- Want to start the project? Run `npm start`.
+- Want to build everything? Run `npm run build:all`.
+- Want to test everything? Run `npm run test:all`.
+
 ## Script folder entry points
 
+- `scripts/doctor.mjs`: check which required tools are installed
+- `scripts/setup.mjs`: install the JavaScript and Python prerequisites
+- `scripts/start-development.mjs`: start the development server
 - `scripts/build.mjs`: type-check and build the production app
+- `scripts/build-all.mjs`: build the app, docs, and Pages output
 - `scripts/build-docs.mjs`: build the API docs and VitePress site
 - `scripts/build-pages.mjs`: combine the app and docs outputs for GitHub Pages
+- `scripts/test-all.mjs`: run the major automated test layers
 
 ## Beginner path
 
