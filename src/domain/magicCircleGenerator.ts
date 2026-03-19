@@ -95,13 +95,23 @@ export const colorPaletteLibrary: readonly ColorPaletteDefinition[] = [
   }
 ] as const;
 
+function getDefaultColorPaletteDefinition(): ColorPaletteDefinition {
+  const defaultColorPaletteDefinition = colorPaletteLibrary[0];
+
+  if (defaultColorPaletteDefinition === undefined) {
+    throw new Error("The color palette library must contain at least one palette.");
+  }
+
+  return defaultColorPaletteDefinition;
+}
+
 export const defaultMagicCircleGenerationOptions: MagicCircleGenerationOptions = {
   seedPhrase: "Tartsi-First-Sigil",
   ringCount: defaultRingCount,
   baseSegmentCount: defaultBaseSegmentCount,
   symmetrySectorCount: defaultSymmetrySectorCount,
   complexityLevel: defaultComplexityLevel,
-  selectedColorPaletteIdentifier: colorPaletteLibrary[0]!.identifier
+  selectedColorPaletteIdentifier: getDefaultColorPaletteDefinition().identifier
 };
 
 function getColorPaletteByIdentifier(selectedColorPaletteIdentifier: string): ColorPaletteDefinition {
@@ -109,7 +119,7 @@ function getColorPaletteByIdentifier(selectedColorPaletteIdentifier: string): Co
     colorPaletteLibrary.find(
       (colorPaletteDefinition) =>
         colorPaletteDefinition.identifier === selectedColorPaletteIdentifier
-    ) ?? colorPaletteLibrary[0]!
+    ) ?? getDefaultColorPaletteDefinition()
   );
 }
 

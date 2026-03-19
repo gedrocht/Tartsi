@@ -1,6 +1,7 @@
 .pytest_cache/
 .coverage
 coverage.xml
+coverage/
 htmlcov/
 __pycache__/
 *.py[cod]

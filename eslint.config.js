@@ -60,6 +60,12 @@ export default typescriptEslint.config(
           varsIgnorePattern: "^unused"
         }
       ],
+      "@typescript-eslint/restrict-template-expressions": [
+        "error",
+        {
+          allowNumber: true
+        }
+      ],
       "jsx-a11y/anchor-is-valid": "error",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "error",
