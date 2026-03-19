@@ -1,6 +1,12 @@
 # Tartsi: Magic Circle Generator
 
-Tartsi is a React and TypeScript web application that generates dramatic magic circles made from a geometric symbolic language. The visual language uses a wave-function-collapse-inspired constraint solver to arrange symbols into multiple concentric rings, creating ceremonial diagrams with an alchemical and cosmic aesthetic.
+Tartsi is a React and TypeScript web application that
+generates dramatic magic circles made from a geometric
+symbolic language. The visual language uses a
+wave-function-collapse-inspired constraint solver to
+arrange symbols into multiple concentric rings,
+creating ceremonial diagrams with an alchemical and
+cosmic aesthetic.
 
 The repository is intentionally strict. It includes:
 
@@ -9,13 +15,18 @@ The repository is intentionally strict. It includes:
 - API documentation generated from TSDoc comments via TypeDoc.
 - A separate serveable documentation site for tutorials and beginner guides.
 - A separate DokuWiki layer for wiki-style onboarding and deeper walkthroughs.
-- GitHub Actions for linting, type checking, testing, coverage, security scans, dependency review, CodeQL, link checking, documentation builds, and GitHub Pages deployment.
+- GitHub Actions for linting, type checking, testing,
+  coverage, security scans, dependency review, CodeQL,
+  link checking, documentation builds, and GitHub Pages
+  deployment.
 
 ## Features
 
 - Deterministic generation from human-readable seed phrases
 - Multiple concentric rings with symmetry-aware symbol placement
-- A geometric symbolic language composed of triangles, squares, diamonds, waves, spirals, petals, chevrons, and orbital patterns
+- A geometric symbolic language composed of triangles,
+  squares, diamonds, waves, spirals, petals, chevrons,
+  and orbital patterns
 - SVG rendering for crisp export quality
 - In-app logging plus browser-console logging
 - Export of generated circles as SVG
@@ -24,7 +35,8 @@ The repository is intentionally strict. It includes:
 
 - React + TypeScript for a strict, maintainable UI
 - Vite for fast development and static builds
-- Vitest + Testing Library + jest-axe for unit, component, and accessibility testing
+- Vitest + Testing Library + jest-axe for unit,
+  component, and accessibility testing
 - Playwright for end-to-end browser validation
 - TypeDoc for API documentation
 - VitePress for the GitHub Pages documentation site
@@ -71,12 +83,14 @@ docker compose -f wiki/docker-compose.yml up
 - `documentation-site/`: GitHub Pages documentation site powered by VitePress
 - `wiki/`: DokuWiki content and local serving configuration
 - `tests/`: repository policy checks that protect project standards
-- `.github/workflows/`: GitHub automation for quality, security, and documentation
+- `.github/workflows/`: GitHub automation for quality,
+  security, and documentation
 
 ## Documentation layers
 
 - API reference: generated from source comments using TypeDoc
-- Documentation site: beginner tutorials, architecture guides, testing guides, and library references
+- Documentation site: beginner tutorials, architecture
+  guides, testing guides, and library references
 - Wiki: a browsable DokuWiki knowledge base for step-by-step onboarding
 
 ## Important scripts
@@ -89,16 +103,19 @@ docker compose -f wiki/docker-compose.yml up
 - `npm run docs:api`: build API docs from TSDoc comments
 - `npm run docs:site:build`: build the VitePress documentation site
 - `npm run docs:wiki:serve`: start the DokuWiki layer with Docker
-- `npm run pages:build`: merge the app and documentation outputs for GitHub Pages
+- `npm run pages:build`: merge the app and documentation
+  outputs for GitHub Pages
 - `npm run quality:verify`: run the main local quality gate
 
 ## Beginner path
 
-1. Read the documentation site starting at `documentation-site/guide/getting-started.md`.
+1. Read the documentation site starting at
+   `documentation-site/guide/getting-started.md`.
 2. Read the DokuWiki `start` page and its architecture pages.
 3. Open `src/domain/magicCircleLanguage.ts` to understand the symbolic language.
 4. Open `src/domain/waveFunctionCollapseEngine.ts` to study the solver.
-5. Open `src/components/MagicCircleCanvas.tsx` to see how the final SVG is drawn.
+5. Open `src/components/MagicCircleCanvas.tsx` to see
+   how the final SVG is drawn.
 
 ## GitHub protections this repository expects
 
