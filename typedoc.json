@@ -1,8 +1,10 @@
 {
   "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
   "out": "typedoc-output",
   "readme": "none",
   "plugin": [],
+  "exclude": ["src/test/**/*"],
   "excludeExternals": true,
   "excludePrivate": false,
   "excludeProtected": false,
