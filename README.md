@@ -1,5 +1,10 @@
 # Tartsi: Magic Circle Generator
 
+[![CI](https://github.com/gedrocht/Tartsi/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/gedrocht/Tartsi/actions/workflows/ci.yml)
+[![Repo Health](https://github.com/gedrocht/Tartsi/actions/workflows/repo-health.yml/badge.svg?branch=main)](https://github.com/gedrocht/Tartsi/actions/workflows/repo-health.yml)
+[![CodeQL](https://github.com/gedrocht/Tartsi/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/gedrocht/Tartsi/actions/workflows/codeql.yml)
+[![Pages](https://github.com/gedrocht/Tartsi/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/gedrocht/Tartsi/actions/workflows/pages.yml)
+
 If you are brand new, start with [START_HERE.md](./START_HERE.md).
 
 Tartsi is a React and TypeScript web application that
@@ -9,6 +14,17 @@ wave-function-collapse-inspired constraint solver to
 arrange symbols into multiple concentric rings,
 creating ceremonial diagrams with an alchemical and
 cosmic aesthetic.
+
+## At a glance
+
+- Live application and docs:
+  [GitHub Pages](https://gedrocht.github.io/Tartsi/)
+- Beginner onboarding:
+  [START_HERE.md](./START_HERE.md)
+- Contributor workflow:
+  [CONTRIBUTING.md](./CONTRIBUTING.md)
+- Security process:
+  [SECURITY.md](./SECURITY.md)
 
 The repository is intentionally strict. It includes:
 
@@ -22,6 +38,16 @@ The repository is intentionally strict. It includes:
   link checking, documentation builds, and GitHub Pages
   deployment.
 
+## Why this project exists
+
+Tartsi is meant to be both a visual toy and a learning
+project. It combines procedural generation, symbolic
+design, SVG rendering, strict quality gates, and
+beginner-friendly documentation in one place so a new
+developer can explore a real frontend codebase without
+having to guess how it is supposed to be built,
+tested, documented, and reviewed.
+
 ## Features
 
 - Deterministic generation from human-readable seed phrases
@@ -32,6 +58,16 @@ The repository is intentionally strict. It includes:
 - SVG rendering for crisp export quality
 - In-app logging plus browser-console logging
 - Export of generated circles as SVG
+
+## What GitHub shows visitors
+
+- Automated CI, linting, testing, docs, and deployment
+  badges at the top of this README
+- A repository description that explains the generator,
+  the wave-function-collapse-inspired layout system, and
+  the beginner-friendly documentation focus
+- A GitHub Pages deployment intended to act as the
+  project front door for demos and documentation
 
 ## Technology choices
 
