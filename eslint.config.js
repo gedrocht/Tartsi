@@ -5,6 +5,19 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import reactRefreshPlugin from "eslint-plugin-react-refresh";
 import typescriptEslint from "typescript-eslint";
 
+const sharedLanguageGlobals = {
+  ...environmentGlobals.browser,
+  ...environmentGlobals.node
+};
+
+const typeCheckedTypeScriptConfigurations = [
+  ...typescriptEslint.configs.strictTypeChecked,
+  ...typescriptEslint.configs.stylisticTypeChecked
+].map((eslintConfiguration) => ({
+  ...eslintConfiguration,
+  files: ["**/*.{ts,tsx}"]
+}));
+
 export default typescriptEslint.config(
   {
     ignores: [
@@ -18,8 +31,12 @@ export default typescriptEslint.config(
     ]
   },
   eslintJavaScriptRecommendedConfiguration.configs.recommended,
-  ...typescriptEslint.configs.strictTypeChecked,
-  ...typescriptEslint.configs.stylisticTypeChecked,
+  {
+    languageOptions: {
+      globals: sharedLanguageGlobals
+    }
+  },
+  ...typeCheckedTypeScriptConfigurations,
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -27,10 +44,7 @@ export default typescriptEslint.config(
         project: "./tsconfig.json",
         tsconfigRootDir: import.meta.dirname
       },
-      globals: {
-        ...environmentGlobals.browser,
-        ...environmentGlobals.node
-      }
+      globals: sharedLanguageGlobals
     },
     plugins: {
       "jsx-a11y": jsxAccessibilityPlugin,
