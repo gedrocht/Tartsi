@@ -14,4 +14,3 @@ docker compose -f wiki/docker-compose.yml up
 ```
 
 Then open the local address reported by Docker.
-

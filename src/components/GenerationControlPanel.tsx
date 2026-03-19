@@ -68,13 +68,13 @@ export function GenerationControlPanel({
             className="text-field"
             name="seedPhrase"
             value={magicCircleGenerationOptions.seedPhrase}
-            onChange={(event) =>
+            onChange={(event) => {
               handleTextFieldChange(
                 event,
                 magicCircleGenerationOptions,
                 onMagicCircleGenerationOptionsChange
-              )
-            }
+              );
+            }}
           />
         </label>
 
@@ -87,13 +87,13 @@ export function GenerationControlPanel({
             max={7}
             name="ringCount"
             value={magicCircleGenerationOptions.ringCount}
-            onChange={(event) =>
+            onChange={(event) => {
               handleNumberFieldChange(
                 event,
                 magicCircleGenerationOptions,
                 onMagicCircleGenerationOptionsChange
-              )
-            }
+              );
+            }}
           />
           <span>{magicCircleGenerationOptions.ringCount}</span>
         </label>
@@ -107,13 +107,13 @@ export function GenerationControlPanel({
             max={20}
             name="baseSegmentCount"
             value={magicCircleGenerationOptions.baseSegmentCount}
-            onChange={(event) =>
+            onChange={(event) => {
               handleNumberFieldChange(
                 event,
                 magicCircleGenerationOptions,
                 onMagicCircleGenerationOptionsChange
-              )
-            }
+              );
+            }}
           />
           <span>{magicCircleGenerationOptions.baseSegmentCount}</span>
         </label>
@@ -127,13 +127,13 @@ export function GenerationControlPanel({
             max={8}
             name="symmetrySectorCount"
             value={magicCircleGenerationOptions.symmetrySectorCount}
-            onChange={(event) =>
+            onChange={(event) => {
               handleNumberFieldChange(
                 event,
                 magicCircleGenerationOptions,
                 onMagicCircleGenerationOptionsChange
-              )
-            }
+              );
+            }}
           />
           <span>{magicCircleGenerationOptions.symmetrySectorCount}</span>
         </label>
@@ -147,13 +147,13 @@ export function GenerationControlPanel({
             max={5}
             name="complexityLevel"
             value={magicCircleGenerationOptions.complexityLevel}
-            onChange={(event) =>
+            onChange={(event) => {
               handleNumberFieldChange(
                 event,
                 magicCircleGenerationOptions,
                 onMagicCircleGenerationOptionsChange
-              )
-            }
+              );
+            }}
           />
           <span>{magicCircleGenerationOptions.complexityLevel}</span>
         </label>
@@ -164,12 +164,12 @@ export function GenerationControlPanel({
             className="text-field"
             name="selectedColorPaletteIdentifier"
             value={magicCircleGenerationOptions.selectedColorPaletteIdentifier}
-            onChange={(event) =>
+            onChange={(event) => {
               onMagicCircleGenerationOptionsChange({
                 ...magicCircleGenerationOptions,
                 selectedColorPaletteIdentifier: event.target.value
-              })
-            }
+              });
+            }}
           >
             {colorPaletteLibrary.map((colorPaletteDefinition) => (
               <option
@@ -202,4 +202,3 @@ export function GenerationControlPanel({
     </section>
   );
 }
-

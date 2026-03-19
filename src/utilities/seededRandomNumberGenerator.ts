@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-magic-numbers */
-
 /**
  * The constants in this file come from well-known deterministic pseudo-random algorithms.
  * We keep them together in one place and document them so beginners understand that these
@@ -73,7 +71,13 @@ export function createSeededRandomNumberGenerator(
         throw new Error("pickOne requires at least one available value.");
       }
 
-      return availableValues[this.nextInteger(availableValues.length)]!;
+      const selectedValue = availableValues[this.nextInteger(availableValues.length)];
+
+      if (selectedValue === undefined) {
+        throw new Error("The seeded random number generator selected an invalid array index.");
+      }
+
+      return selectedValue;
     },
     pickWeighted<ValueType>(weightedSelectionOptions: readonly WeightedSelectionOption<ValueType>[]) {
       if (weightedSelectionOptions.length === 0) {
@@ -95,7 +99,14 @@ export function createSeededRandomNumberGenerator(
         }
       }
 
-      return weightedSelectionOptions[weightedSelectionOptions.length - 1]!.value;
+      const finalWeightedSelectionOption =
+        weightedSelectionOptions[weightedSelectionOptions.length - 1];
+
+      if (finalWeightedSelectionOption === undefined) {
+        throw new Error("The weighted selection options unexpectedly became empty.");
+      }
+
+      return finalWeightedSelectionOption.value;
     }
   };
 }

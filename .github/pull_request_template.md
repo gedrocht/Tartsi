@@ -17,4 +17,3 @@ Describe rollout concerns, sensitive paths, or why risk is low.
 ## Review Notes
 
 Point reviewers to the most important files, architectural decisions, or visual areas.
-

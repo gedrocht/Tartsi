@@ -27,7 +27,9 @@ export function LogConsolePanel({
         <button
           className="secondary-button"
           type="button"
-          onClick={() => applicationLogger.clear()}
+          onClick={() => {
+            applicationLogger.clear();
+          }}
         >
           Clear logs
         </button>

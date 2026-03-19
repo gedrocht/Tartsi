@@ -118,10 +118,10 @@ function getRadialNeighborAddresses(
 function getNeighborReferences(
   ringBlueprints: readonly MagicCircleRingBlueprint[],
   magicCircleCellAddress: MagicCircleCellAddress
-): Array<{
+): {
   directionalRelationshipIdentifier: DirectionalRelationshipIdentifier;
   neighboringMagicCircleCellAddress: MagicCircleCellAddress;
-}> {
+}[] {
   const currentRingBlueprint = ringBlueprints[magicCircleCellAddress.ringIndex];
 
   if (currentRingBlueprint === undefined) {
@@ -416,7 +416,7 @@ function propagateConstraints(
         neighborReference.neighboringMagicCircleCellAddress
       );
 
-      if (neighborWasReduced === false) {
+      if (!neighborWasReduced) {
         const neighboringMutableCellPossibilityState = getCellStateOrThrow(
           mutableCellPossibilityStateMap,
           neighborReference.neighboringMagicCircleCellAddress
@@ -479,17 +479,12 @@ export function collapseMagicCircleLanguageAcrossRings(
   ) {
     const mutableCellPossibilityStateMap = buildInitialCellPossibilityStateMap(ringBlueprints);
     let solvingSucceeded = true;
+    let nextMagicCircleCellAddress = chooseNextCellAddressWithLowestEntropy(
+      mutableCellPossibilityStateMap,
+      seededRandomNumberGenerator
+    );
 
-    while (true) {
-      const nextMagicCircleCellAddress = chooseNextCellAddressWithLowestEntropy(
-        mutableCellPossibilityStateMap,
-        seededRandomNumberGenerator
-      );
-
-      if (nextMagicCircleCellAddress === undefined) {
-        break;
-      }
-
+    while (nextMagicCircleCellAddress !== undefined) {
       const changedCellAddresses = collapseCellAndSymmetryPartners(
         mutableCellPossibilityStateMap,
         ringBlueprints,
@@ -507,6 +502,11 @@ export function collapseMagicCircleLanguageAcrossRings(
         solvingSucceeded = false;
         break;
       }
+
+      nextMagicCircleCellAddress = chooseNextCellAddressWithLowestEntropy(
+        mutableCellPossibilityStateMap,
+        seededRandomNumberGenerator
+      );
     }
 
     if (solvingSucceeded) {

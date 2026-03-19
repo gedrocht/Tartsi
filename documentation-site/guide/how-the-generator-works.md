@@ -43,4 +43,3 @@ Once every cell has a symbol, the renderer places those symbols into concentric 
 - Arcs
 - A central core glyph
 - A glowing outer starburst
-

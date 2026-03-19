@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
+  colorPaletteLibrary,
   defaultMagicCircleGenerationOptions,
   generateMagicCircleDiagram
 } from "../domain/magicCircleGenerator";
@@ -7,6 +8,7 @@ import {
   areLanguageSymbolsCompatible,
   languageSymbolDefinitionMap
 } from "../domain/magicCircleLanguage";
+import { ApplicationLogger } from "../services/applicationLogger";
 
 function expectAllNeighborsToBeCompatible() {
   const generatedMagicCircleDiagram = generateMagicCircleDiagram({
@@ -33,13 +35,17 @@ function expectAllNeighborsToBeCompatible() {
         neighboringRenderableMagicCircleCell.languageSymbolIdentifier
       );
 
-      expect(currentLanguageSymbolDefinition).toBeDefined();
-      expect(neighboringLanguageSymbolDefinition).toBeDefined();
+      if (
+        currentLanguageSymbolDefinition === undefined ||
+        neighboringLanguageSymbolDefinition === undefined
+      ) {
+        throw new Error("Expected generated cells to reference known language symbols.");
+      }
 
       expect(
         areLanguageSymbolsCompatible(
-          currentLanguageSymbolDefinition!,
-          neighboringLanguageSymbolDefinition!,
+          currentLanguageSymbolDefinition,
+          neighboringLanguageSymbolDefinition,
           "tangential"
         )
       ).toBe(true);
@@ -74,6 +80,24 @@ describe("generateMagicCircleDiagram", () => {
     });
 
     expect(generatedMagicCircleDiagram.rings).toHaveLength(6);
+  });
+
+  it("falls back to the default palette when the requested palette is unknown", () => {
+    const applicationLogger = new ApplicationLogger();
+    const infoSpy = vi.spyOn(applicationLogger, "info").mockImplementation(() => undefined);
+    const defaultColorPaletteIdentifier = colorPaletteLibrary[0]?.identifier ?? "solar-gold";
+    const generatedMagicCircleDiagram = generateMagicCircleDiagram(
+      {
+        ...defaultMagicCircleGenerationOptions,
+        selectedColorPaletteIdentifier: "non-existent-palette"
+      },
+      applicationLogger
+    );
+
+    expect(generatedMagicCircleDiagram.selectedColorPalette.identifier).toBe(
+      defaultColorPaletteIdentifier
+    );
+    expect(infoSpy).toHaveBeenCalled();
   });
 
   it("keeps tangential neighbors compatible within every ring", () => {

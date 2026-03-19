@@ -34,4 +34,3 @@ Use the export button to download the generated SVG file.
 - Ring count changes the overall structure.
 - Complexity affects segment density.
 - The renderer can export crisp vector artwork.
-

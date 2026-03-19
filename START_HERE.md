@@ -74,4 +74,3 @@ Use this only if you want to browse the local DokuWiki layer.
 - Read `README.md` for the bigger project overview.
 - Read `CONTRIBUTING.md` if you plan to change code.
 - Run `npm run doctor` again to confirm your tools are available.
-

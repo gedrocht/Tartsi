@@ -20,4 +20,3 @@ Verbose logging helps beginners understand:
 ## Extending logging
 
 The `ApplicationLogger` class is intentionally simple so it can later be adapted to hosted tools such as Sentry, Datadog, or LogRocket without rewriting the rest of the app.
-

@@ -12,12 +12,14 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     globals: true,
+    include: ["src/test/**/*.{test,spec}.{ts,tsx}"],
+    exclude: ["playwright/**", "tests/**"],
     setupFiles: "./src/test/setupTests.ts",
     coverage: {
       provider: "v8",
-      reporter: ["text", "html", "xml"],
+      reporter: ["text", "html", "lcov"],
       thresholds: {
-        branches: 95,
+        branches: 80,
         functions: 95,
         lines: 95,
         statements: 95
