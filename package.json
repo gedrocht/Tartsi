@@ -10,7 +10,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run typecheck && vite build",
+    "build": "node ./scripts/build.mjs",
+    "build:application": "vite build",
+    "build:docs": "node ./scripts/build-docs.mjs",
     "preview": "vite preview",
     "lint": "eslint . --max-warnings 0",
     "format:check": "prettier --check .",
@@ -24,7 +26,7 @@
     "docs:site:build": "vitepress build documentation-site",
     "docs:wiki:serve": "docker compose -f wiki/docker-compose.yml up",
     "pages:build": "node ./scripts/build-pages.mjs",
-    "quality:verify": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build && npm run docs:api && npm run docs:site:build"
+    "quality:verify": "npm run format:check && npm run lint && npm run test && npm run build && npm run build:docs"
   },
   "dependencies": {
     "react": "19.2.4",

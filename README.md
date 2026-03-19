@@ -64,6 +64,18 @@ python -m pip install -r requirements-dev.txt
 npm run dev
 ```
 
+### Build the application
+
+```bash
+npm run build
+```
+
+You can also call the script directly if you prefer script-folder entry points:
+
+```bash
+node ./scripts/build.mjs
+```
+
 ### Run the main quality checks
 
 ```bash
@@ -97,6 +109,8 @@ docker compose -f wiki/docker-compose.yml up
 
 - `npm run dev`: start the application in development mode
 - `npm run build`: type-check and build the application
+- `npm run build:application`: build only the Vite application bundle
+- `npm run build:docs`: build the API docs and documentation site
 - `npm run test`: run Vitest with coverage
 - `npm run test:e2e`: run Playwright browser tests
 - `npm run test:repository`: run the Python repository-policy tests
@@ -106,6 +120,12 @@ docker compose -f wiki/docker-compose.yml up
 - `npm run pages:build`: merge the app and documentation
   outputs for GitHub Pages
 - `npm run quality:verify`: run the main local quality gate
+
+## Script folder entry points
+
+- `scripts/build.mjs`: type-check and build the production app
+- `scripts/build-docs.mjs`: build the API docs and VitePress site
+- `scripts/build-pages.mjs`: combine the app and docs outputs for GitHub Pages
 
 ## Beginner path
 
