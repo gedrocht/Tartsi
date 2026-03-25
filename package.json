@@ -59,7 +59,7 @@
     "jest-axe": "10.0.0",
     "prettier": "3.8.1",
     "typedoc": "0.28.17",
-    "typescript": "5.9.3",
+    "typescript": "6.0.2",
     "typescript-eslint": "8.57.1",
     "vite": "8.0.0",
     "vitepress": "1.6.4",
